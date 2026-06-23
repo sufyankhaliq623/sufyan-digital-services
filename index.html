@@ -13,6 +13,7 @@ background:linear-gradient(135deg,#050816,#1a1446,#050816);
 color:white;
 }
 
+/* HEADER */
 header{
 padding:25px;
 text-align:center;
@@ -28,22 +29,29 @@ color:#a5b4fc;
 margin-top:-10px;
 }
 
+/* CONTAINER */
 .container{
 max-width:950px;
 margin:auto;
 padding:20px;
+box-sizing:border-box;
 }
 
+/* SEARCH FIXED */
 input{
 width:100%;
+max-width:100%;
+box-sizing:border-box;
 padding:14px;
 border-radius:12px;
 border:none;
 outline:none;
 margin:15px 0;
 font-size:16px;
+display:block;
 }
 
+/* CARD */
 .card{
 display:flex;
 justify-content:space-between;
@@ -62,11 +70,28 @@ transform:scale(1.02);
 background:rgba(99,102,241,0.2);
 }
 
-.left{display:flex;flex-direction:column;}
-.title{font-size:17px;font-weight:bold;}
-.price{color:#22c55e;font-weight:bold;margin-top:5px;}
+.left{
+display:flex;
+flex-direction:column;
+}
 
-.controls{display:flex;align-items:center;gap:10px;}
+.title{
+font-size:17px;
+font-weight:bold;
+}
+
+.price{
+color:#22c55e;
+font-weight:bold;
+margin-top:5px;
+}
+
+/* QTY */
+.controls{
+display:flex;
+align-items:center;
+gap:10px;
+}
 
 .btn{
 background:#6366f1;
@@ -78,8 +103,13 @@ cursor:pointer;
 font-size:16px;
 }
 
-.qty{min-width:25px;text-align:center;font-weight:bold;}
+.qty{
+min-width:25px;
+text-align:center;
+font-weight:bold;
+}
 
+/* TOTAL */
 .total{
 text-align:center;
 font-size:24px;
@@ -88,6 +118,7 @@ font-weight:bold;
 color:#22c55e;
 }
 
+/* BUTTON */
 .order{
 width:100%;
 padding:16px;
@@ -100,7 +131,9 @@ color:white;
 transition:0.3s;
 }
 
-.order:hover{transform:scale(1.03);}
+.order:hover{
+transform:scale(1.03);
+}
 
 .note{
 text-align:center;
@@ -109,6 +142,7 @@ color:#94a3b8;
 margin-top:10px;
 }
 
+/* FLOAT CART */
 .float{
 position:fixed;
 bottom:20px;
@@ -119,7 +153,7 @@ border-radius:12px;
 border:1px solid rgba(255,255,255,0.2);
 }
 
-/* JAZZCASH BUTTON */
+/* CASH BUTTON */
 .cashBtn{
 width:100%;
 margin-top:10px;
@@ -167,7 +201,6 @@ margin-top:10px;
 <body>
 
 <header>🚀 Sufyan Digital Services</header>
-<br>
 <div class="sub">Premium Freelancing Services</div>
 
 <div class="container">
@@ -184,7 +217,6 @@ Total: Rs <span id="total">0</span>
 🔥 Order on WhatsApp
 </button>
 
-<!-- NEW BUTTON -->
 <button class="cashBtn" onclick="openCash()">
 💳 View JazzCash Info
 </button>
@@ -205,8 +237,7 @@ Cart: Rs <span id="floatTotal">0</span>
 <h2>💳 Payment Info</h2>
 <p><b>JazzCash Number:</b></p>
 <h3>03114143566</h3>
-<p>Send payment screenshot on whatsApp for confirmation.</p>
-
+<p>Send payment screenshot on WhatsApp for confirmation.</p>
 <button class="close" onclick="closeCash()">Close</button>
 </div>
 </div>
@@ -256,8 +287,8 @@ function dec(i){if(cart[i]>0) cart[i]--;update();}
 
 function update(){
 render();
-let total=0;
 
+let total=0;
 services.forEach((s,i)=>{
 total+=cart[i]*s.price;
 });
@@ -306,7 +337,7 @@ Fast delivery available 🚀`;
 window.open("https://wa.me/923114143566?text="+encodeURIComponent(msg));
 }
 
-/* CASH MODAL */
+/* MODAL */
 function openCash(){
 document.getElementById("modal").style.display="flex";
 }
